@@ -1,22 +1,31 @@
 import React from "react";
 
-export default function CurrentDate() {
+function CurrentDate(props) {
+  let hours = props.date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = props.date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[props.date.getDay()];
   return (
-    <div className="currentDate">
-      <ul>
-        <li className="currentTemp weather-temperature">
-          <span id="current-temp">78°</span>
-          <span className="tempUnit">
-            <button id="fahrenheit-link" class="active fahrenheit-link">
-              F
-            </button>
-          </span>
-        </li>
-        <li className="weatherDescription" id="weather-description">
-          Sunny
-        </li>
-        <li id="date">Sunday 6:00PM</li>
-      </ul>
+    <div>
+      {day} {hours}:{minutes}
     </div>
   );
 }
+
+export default CurrentDate;

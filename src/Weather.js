@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import CurrentWeather from "./CurrentWeather";
+import WeatherForecast from "./WeatherForecast";
 
-export default function Weather(props) {
+function Weather(props) {
   let [weatherData, setWeatherData] = useState({ ready: false });
   let [city, setCity] = useState(props.defaultCity);
 
@@ -11,6 +13,8 @@ export default function Weather(props) {
       ready: true,
       coordinates: response.data.coord,
       temperature: Math.round(response.data.main.temp),
+      low: Math.round(response.data.main.temp_min),
+      high: Math.round(response.data.main.temp_max),
       wind: Math.round(response.data.wind.speed),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -18,6 +22,7 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
     });
+    console.log(response.data);
   }
 
   function search() {
@@ -62,7 +67,7 @@ export default function Weather(props) {
             </div>
           </form>
           <CurrentWeather data={weatherData} />
-          <WeatherForecast coordinates={weatherData.coordinates} />
+          <WeatherForecast />
         </div>
       </div>
     );
@@ -71,3 +76,5 @@ export default function Weather(props) {
     return "Loading...";
   }
 }
+
+export default Weather;
