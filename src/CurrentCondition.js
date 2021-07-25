@@ -5,7 +5,7 @@ import icon from "./img/icons/cloudy.svg";
 export default function CurrentCondition() {
   return (
     <div className="clearfix weather-condition">
-      <img src={icon} />
+      <img src={icon} alt="weather-icon" />
     </div>
   );
 }
