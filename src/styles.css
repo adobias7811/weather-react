@@ -2,8 +2,8 @@
   font-family: "Raleway", sans-serif;
   max-width: 800px;
   border: 1px solid #124479;
-  background: #376e8d;
-  background: linear-gradient(#376e8d, #cbccce);
+  background: #ffc79a;
+  background: linear-gradient(#e9a770, #f9df70);
   border-radius: 7px;
   box-shadow: 6px 6px 5px #0e2832;
   display: block;
@@ -38,6 +38,11 @@ li {
   font-size: 18px;
   font-weight: 300;
   padding: 5px;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
 }
 
 .weather-temperature .active {

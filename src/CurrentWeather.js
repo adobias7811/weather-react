@@ -2,7 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CurrentDate from "./CurrentDate";
 import CurrentCondition from "./CurrentCondition";
-import WeatherDetails from "./WeatherDetails";
 
 function CurrentWeather(props) {
   return (

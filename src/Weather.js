@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import CurrentWeather from "./CurrentWeather";
-import WeatherForecast from "./WeatherForecast";
 
 function Weather(props) {
   let [weatherData, setWeatherData] = useState({ ready: false });
@@ -19,10 +18,13 @@ function Weather(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       city: response.data.name,
-      icon: response.data.weather[0].icon,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
       date: new Date(response.data.dt * 1000),
     });
     console.log(response.data);
+    console.log(
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+    );
   }
 
   function search() {
@@ -53,7 +55,7 @@ function Weather(props) {
                   className="cityForm form-control search-inpput"
                   id="city-input"
                   placeholder="Enter a city..."
-                  autocomplete="off"
+                  autoComplete="off"
                   onChange={changeCity}
                 />
               </div>
@@ -67,7 +69,6 @@ function Weather(props) {
             </div>
           </form>
           <CurrentWeather data={weatherData} />
-          <WeatherForecast />
         </div>
       </div>
     );
