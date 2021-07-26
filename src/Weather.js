@@ -21,10 +21,6 @@ function Weather(props) {
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`,
       date: new Date(response.data.dt * 1000),
     });
-    console.log(response.data);
-    console.log(
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
-    );
   }
 
   function search() {
